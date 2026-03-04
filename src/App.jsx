@@ -469,8 +469,8 @@ const Hero = memo(({ sun }) => {
                 className="h-7 md:h-9 w-auto object-contain mb-6"
                 style={{ 
                   mixBlendMode: 'screen',
-                  filter: 'brightness(1.25) contrast(1.25) drop-shadow(0 10px 25px rgba(0,0,0,0.35))',
-                  opacity: 0.92
+                  filter: 'brightness(1.35) contrast(1.35) drop-shadow(0 12px 28px rgba(0,0,0,0.35)) drop-shadow(0 0 4px rgba(255,255,255,0.3))',
+                  opacity: 0.97
                 }} 
                 onError={(e) => { e.target.onerror = null; e.target.src = 'Emblem Writing.png' }}
               />
@@ -505,7 +505,7 @@ const Hero = memo(({ sun }) => {
             </Reveal>
           </div>
 
-          <div className="relative z-10 flex flex-col items-center justify-center gap-8 lg:bg-gradient-to-l from-[#15346b]/30 via-[#0f2f5e]/18 to-[#0A2342]/10 p-6 rounded-3xl mt-10 border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+          <div className="relative z-10 flex flex-col items-center justify-center gap-8 lg:bg-gradient-to-l from-[#15346b]/26 via-[#0f2f5e]/16 to-[#0A2342]/8 p-6 rounded-3xl mt-10 border border-white/8 shadow-[0_20px_50px_rgba(0,0,0,0.28)] backdrop-blur-sm">
               <Reveal delay={400}>
                 <SmartLogo 
                   src="towells-logo-ar.png"
@@ -514,7 +514,7 @@ const Hero = memo(({ sun }) => {
                   scrollY={scrollY} 
                   preserveColor
                   blendMode="screen"
-                  style={{ filter: 'brightness(1.15) contrast(1.1) drop-shadow(0 6px 18px rgba(0,0,0,0.35))' }}
+                  style={{ filter: 'brightness(1.22) contrast(1.15) drop-shadow(0 10px 26px rgba(0,0,0,0.38)) drop-shadow(0 0 6px rgba(255,215,128,0.35))' }}
                 />
               </Reveal>
 
@@ -527,7 +527,7 @@ const Hero = memo(({ sun }) => {
                   scrollY={scrollY} 
                   preserveColor
                   blendMode="screen"
-                  style={{ filter: 'brightness(1.12) contrast(1.08) drop-shadow(0 10px 25px rgba(0,0,0,0.3))' }}
+                  style={{ filter: 'brightness(1.18) contrast(1.12) drop-shadow(0 12px 30px rgba(0,0,0,0.35)) drop-shadow(0 0 8px rgba(255,215,128,0.3))' }}
                 />
               </Reveal>
           </div>
@@ -554,12 +554,14 @@ const Hero = memo(({ sun }) => {
               src="towells-anniversary-badge.png" 
               alt="150 Years"
               className="h-16 md:h-20 lg:h-24 object-contain transition-transform hover:scale-105 duration-500"
+              style={{ filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.28)) drop-shadow(0 0 6px rgba(255,215,128,0.28)) brightness(1.1) contrast(1.05)' }}
             />
             {/* White card: Arabic logo is white-on-black. Invert makes it black-on-white. Multiply deletes the white box. */}
             <img 
               src="towells-logo-ar.png"
               alt="Towell Arabic Logo"
               className="h-8 md:h-12 lg:h-14 object-contain transition-transform hover:scale-105 duration-500"
+              style={{ filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.28)) drop-shadow(0 0 6px rgba(255,215,128,0.25)) brightness(1.12) contrast(1.08)' }}
             />
           </div>
         </div>
