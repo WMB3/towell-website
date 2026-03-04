@@ -2,6 +2,7 @@
 deployment:
   tasks:
     - export PATH=/opt/cpanel/ea-nodejs18/bin:$PATH
+    - export DEPLOYPATH=/home/uzinmjcx/public_html/
     - npm install
     - npm run build
-    - /bin/cp -R dist/* /home/uzinmjcx/public_html/
+    - /bin/cp -R dist/. $DEPLOYPATH
