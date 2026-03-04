@@ -145,9 +145,21 @@ const Reveal = memo(({ children, delay = 0, direction = 'up', className = "", fu
 });
 
 // --- SMART LOGO: Perfectly Blends Any Image Background ---
-const SmartLogo = memo(({ src, alt, scrollY, className, invertToWhite = false, blendMode = 'screen' }) => {
+const SmartLogo = memo(({ src, alt, scrollY, className, invertToWhite = false, blendMode = 'screen', preserveColor = false }) => {
   const isScrolled = scrollY > 50;
   
+  if (preserveColor) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className={`object-contain transition-all duration-700 ${className}`}
+        style={{ mixBlendMode: 'normal' }}
+        loading="lazy"
+      />
+    );
+  }
+
   // Base Filter: Crushes image into pure black & white. Inverts if it started as black-on-white.
   const baseFilter = `grayscale(1) contrast(2800%) brightness(1.2) ${invertToWhite ? 'invert(1)' : ''}`;
   
@@ -454,8 +466,8 @@ const Hero = memo(({ sun }) => {
               <img 
                 src="towells-anniversay-phrase-en.png" 
                 alt="Trusted for Generations"
-                className="h-6 md:h-8 w-auto object-contain mb-6"
-                style={{ filter: 'grayscale(1) contrast(3800%) brightness(1.8) invert(1)', mixBlendMode: 'screen' }} 
+                className="h-7 md:h-9 w-auto object-contain mb-6"
+                style={{ mixBlendMode: 'normal' }} 
                 onError={(e) => { e.target.onerror = null; e.target.src = 'Emblem Writing.png' }}
               />
             </Reveal>
@@ -491,14 +503,12 @@ const Hero = memo(({ sun }) => {
 
           <div className="relative z-10 flex flex-col items-center justify-center gap-8 lg:bg-gradient-to-l from-[#15346b]/35 via-[#0f2f5e]/20 to-transparent p-6 rounded-3xl mt-10">
               <Reveal delay={400}>
-                {/* Force white mark and screen-blend to remove any dark backing from source image. */}
                 <SmartLogo 
                   src="towells-logo-ar.png"
                   alt="Towell Arabic Logo" 
                   className="h-12 md:h-16 lg:h-20" 
                   scrollY={scrollY} 
-                  invertToWhite={true}
-                  blendMode="screen"
+                  preserveColor
                 />
               </Reveal>
 
@@ -509,8 +519,7 @@ const Hero = memo(({ sun }) => {
                   alt="Towell Emblem" 
                   className="h-24 md:h-32 lg:h-40" 
                   scrollY={scrollY} 
-                  invertToWhite={true}
-                  blendMode="screen"
+                  preserveColor
                 />
               </Reveal>
           </div>
@@ -536,15 +545,13 @@ const Hero = memo(({ sun }) => {
             <img 
               src="towells-anniversary-badge.png" 
               alt="150 Years"
-              className="h-16 md:h-20 lg:h-24 object-contain transition-transform hover:scale-105 duration-500 mix-blend-multiply"
-              style={{ filter: 'brightness(1.1) contrast(2)' }}
+              className="h-16 md:h-20 lg:h-24 object-contain transition-transform hover:scale-105 duration-500"
             />
             {/* White card: Arabic logo is white-on-black. Invert makes it black-on-white. Multiply deletes the white box. */}
             <img 
               src="towells-logo-ar.png"
               alt="Towell Arabic Logo"
-              className="h-8 md:h-12 lg:h-14 object-contain transition-transform hover:scale-105 duration-500 mix-blend-multiply"
-              style={{ filter: 'grayscale(1) contrast(3000%) brightness(1.4) invert(1)' }}
+              className="h-8 md:h-12 lg:h-14 object-contain transition-transform hover:scale-105 duration-500"
             />
           </div>
         </div>
