@@ -467,7 +467,11 @@ const Hero = memo(({ sun }) => {
                 src="towells-anniversay-phrase-en.png" 
                 alt="Trusted for Generations"
                 className="h-7 md:h-9 w-auto object-contain mb-6"
-                style={{ mixBlendMode: 'normal' }} 
+                style={{ 
+                  mixBlendMode: 'screen',
+                  filter: 'brightness(1.25) contrast(1.25) drop-shadow(0 10px 25px rgba(0,0,0,0.35))',
+                  opacity: 0.92
+                }} 
                 onError={(e) => { e.target.onerror = null; e.target.src = 'Emblem Writing.png' }}
               />
             </Reveal>
@@ -501,7 +505,7 @@ const Hero = memo(({ sun }) => {
             </Reveal>
           </div>
 
-          <div className="relative z-10 flex flex-col items-center justify-center gap-8 lg:bg-gradient-to-l from-[#15346b]/35 via-[#0f2f5e]/20 to-transparent p-6 rounded-3xl mt-10">
+          <div className="relative z-10 flex flex-col items-center justify-center gap-8 lg:bg-gradient-to-l from-[#15346b]/30 via-[#0f2f5e]/18 to-[#0A2342]/10 p-6 rounded-3xl mt-10 border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.25)] backdrop-blur-sm">
               <Reveal delay={400}>
                 <SmartLogo 
                   src="towells-logo-ar.png"
@@ -509,6 +513,8 @@ const Hero = memo(({ sun }) => {
                   className="h-12 md:h-16 lg:h-20" 
                   scrollY={scrollY} 
                   preserveColor
+                  blendMode="screen"
+                  style={{ filter: 'brightness(1.15) contrast(1.1) drop-shadow(0 6px 18px rgba(0,0,0,0.35))' }}
                 />
               </Reveal>
 
@@ -520,6 +526,8 @@ const Hero = memo(({ sun }) => {
                   className="h-24 md:h-32 lg:h-40" 
                   scrollY={scrollY} 
                   preserveColor
+                  blendMode="screen"
+                  style={{ filter: 'brightness(1.12) contrast(1.08) drop-shadow(0 10px 25px rgba(0,0,0,0.3))' }}
                 />
               </Reveal>
           </div>
