@@ -36,7 +36,7 @@ const NAV_LINKS = [
 
 // --- Optimized Hooks ---
 const useScrollY = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(() => (typeof window !== 'undefined' ? window.scrollY : 0));
 
   const updateScroll = useCallback(() => {
     setScrollY(window.scrollY);
@@ -55,7 +55,6 @@ const useScrollY = () => {
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    updateScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [updateScroll]);
 
