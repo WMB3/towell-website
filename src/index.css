@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --primary: #0A2342;
+  --secondary: #C6A052;
+  --accent: #1F4585;
+  --surface: #F4F7F9;
+  --text: #333333;
+  background-color: var(--surface);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: clip; /* use hidden if clip causes issues */
+}
+
+#root {
+  width: 100%;
+  overflow-x: clip;
+}
