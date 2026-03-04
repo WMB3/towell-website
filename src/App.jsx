@@ -145,7 +145,7 @@ const Reveal = memo(({ children, delay = 0, direction = 'up', className = "", fu
 });
 
 // --- SMART LOGO: Perfectly Blends Any Image Background ---
-const SmartLogo = memo(({ src, alt, scrollY, className, invertToWhite = false, blendMode = 'screen', preserveColor = false }) => {
+const SmartLogo = memo(({ src, alt, scrollY, className, invertToWhite = false, blendMode = 'screen', preserveColor = false, style = {} }) => {
   const isScrolled = scrollY > 50;
   
   if (preserveColor) {
@@ -154,7 +154,7 @@ const SmartLogo = memo(({ src, alt, scrollY, className, invertToWhite = false, b
         src={src}
         alt={alt}
         className={`object-contain transition-all duration-700 ${className}`}
-        style={{ mixBlendMode: 'normal' }}
+        style={{ mixBlendMode: blendMode, ...style }}
         loading="lazy"
       />
     );
@@ -173,7 +173,7 @@ const SmartLogo = memo(({ src, alt, scrollY, className, invertToWhite = false, b
       src={src}
       alt={alt}
       className={`object-contain transition-all duration-700 ${className}`}
-      style={{ filter: `${baseFilter} ${tintFilter}`, mixBlendMode: blendMode }}
+      style={{ filter: `${baseFilter} ${tintFilter}`, mixBlendMode: blendMode, ...style }}
       loading="lazy"
     />
   );
