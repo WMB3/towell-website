@@ -391,7 +391,8 @@ const Navbar = memo(() => {
                   ? 'border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white' 
                   : 'border-white text-white hover:bg-white hover:text-[var(--primary)] shadow-md'
               }`}>
-                <Globe size={14} />`r`n                <span>Arabic</span>
+                <Globe size={14} />
+                <span>Arabic</span>
               </button>
             </div>
 
@@ -494,7 +495,8 @@ const Hero = memo(({ sun }) => {
               <Reveal delay={400}>
                 {/* The Arabic Logo is white text on a black background. We do NOT invert it. */}
                 <SmartLogo 
-                  src="towells-logo-ar.png" `r`n                  alt="Towell Arabic Logo" 
+                  src="towells-logo-ar.png"
+                  alt="Towell Arabic Logo" 
                   className="h-12 md:h-16 lg:h-20" 
                   scrollY={scrollY} 
                   invertToWhite={false}
@@ -539,7 +541,8 @@ const Hero = memo(({ sun }) => {
             />
             {/* White card: Arabic logo is white-on-black. Invert makes it black-on-white. Multiply deletes the white box. */}
             <img 
-              src="towells-logo-ar.png" `r`n                  alt="Towell Arabic Logo"
+              src="towells-logo-ar.png"
+                  alt="Towell Arabic Logo"
               className="h-8 md:h-12 lg:h-14 object-contain transition-transform hover:scale-105 duration-500 mix-blend-multiply"
               style={{ filter: 'grayscale(1) contrast(2000%) invert(1)' }}
             />
@@ -858,5 +861,6 @@ export default function App() {
     </div>
   );
 }
+
 
 
