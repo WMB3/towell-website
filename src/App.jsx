@@ -468,9 +468,15 @@ const Hero = memo(({ sun }) => {
                 alt="Trusted for Generations"
                 className="h-7 md:h-9 w-auto object-contain mb-6"
                 style={{ 
-                  mixBlendMode: 'screen',
-                  filter: 'brightness(1.35) contrast(1.35) drop-shadow(0 12px 28px rgba(0,0,0,0.35)) drop-shadow(0 0 4px rgba(255,255,255,0.3))',
-                  opacity: 0.97
+                  mixBlendMode: 'normal',
+                  filter: [
+                    'brightness(1.45)',
+                    'contrast(1.45)',
+                    'drop-shadow(0 12px 28px rgba(0,0,0,0.35))',
+                    'drop-shadow(0 0 6px rgba(255,255,255,0.5))',
+                    'drop-shadow(0 0 10px rgba(198,160,82,0.45))'
+                  ].join(' '),
+                  opacity: 1
                 }} 
                 onError={(e) => { e.target.onerror = null; e.target.src = 'Emblem Writing.png' }}
               />
@@ -505,7 +511,7 @@ const Hero = memo(({ sun }) => {
             </Reveal>
           </div>
 
-          <div className="relative z-10 flex flex-col items-center justify-center gap-8 lg:bg-gradient-to-l from-[#15346b]/26 via-[#0f2f5e]/16 to-[#0A2342]/8 p-6 rounded-3xl mt-10 border border-white/8 shadow-[0_20px_50px_rgba(0,0,0,0.28)] backdrop-blur-sm">
+          <div className="relative z-10 flex flex-col items-center justify-center gap-8 lg:bg-gradient-to-l from-[#1b3c73]/32 via-[#0f2f5e]/18 to-[#0A2342]/10 p-7 rounded-3xl mt-10 border border-white/10 shadow-[0_22px_55px_rgba(0,0,0,0.3)] backdrop-blur-sm">
               <Reveal delay={400}>
                 <SmartLogo 
                   src="towells-logo-ar.png"
@@ -513,8 +519,8 @@ const Hero = memo(({ sun }) => {
                   className="h-12 md:h-16 lg:h-20" 
                   scrollY={scrollY} 
                   preserveColor
-                  blendMode="screen"
-                  style={{ filter: 'brightness(1.22) contrast(1.15) drop-shadow(0 10px 26px rgba(0,0,0,0.38)) drop-shadow(0 0 6px rgba(255,215,128,0.35))' }}
+                  blendMode="normal"
+                  style={{ filter: 'brightness(1.3) contrast(1.2) drop-shadow(0 12px 28px rgba(0,0,0,0.38)) drop-shadow(0 0 8px rgba(255,255,255,0.6)) drop-shadow(0 0 10px rgba(198,160,82,0.45))' }}
                 />
               </Reveal>
 
@@ -526,8 +532,8 @@ const Hero = memo(({ sun }) => {
                   className="h-24 md:h-32 lg:h-40" 
                   scrollY={scrollY} 
                   preserveColor
-                  blendMode="screen"
-                  style={{ filter: 'brightness(1.18) contrast(1.12) drop-shadow(0 12px 30px rgba(0,0,0,0.35)) drop-shadow(0 0 8px rgba(255,215,128,0.3))' }}
+                  blendMode="normal"
+                  style={{ filter: 'brightness(1.28) contrast(1.18) drop-shadow(0 14px 32px rgba(0,0,0,0.38)) drop-shadow(0 0 10px rgba(255,255,255,0.65)) drop-shadow(0 0 12px rgba(198,160,82,0.4))' }}
                 />
               </Reveal>
           </div>
@@ -554,14 +560,14 @@ const Hero = memo(({ sun }) => {
               src="towells-anniversary-badge.png" 
               alt="150 Years"
               className="h-16 md:h-20 lg:h-24 object-contain transition-transform hover:scale-105 duration-500"
-              style={{ filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.28)) drop-shadow(0 0 6px rgba(255,215,128,0.28)) brightness(1.1) contrast(1.05)' }}
+              style={{ filter: 'brightness(1.2) contrast(1.15) drop-shadow(0 12px 28px rgba(0,0,0,0.32)) drop-shadow(0 0 8px rgba(255,255,255,0.6)) drop-shadow(0 0 10px rgba(198,160,82,0.38))' }}
             />
             {/* White card: Arabic logo is white-on-black. Invert makes it black-on-white. Multiply deletes the white box. */}
             <img 
               src="towells-logo-ar.png"
               alt="Towell Arabic Logo"
               className="h-8 md:h-12 lg:h-14 object-contain transition-transform hover:scale-105 duration-500"
-              style={{ filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.28)) drop-shadow(0 0 6px rgba(255,215,128,0.25)) brightness(1.12) contrast(1.08)' }}
+              style={{ filter: 'brightness(1.22) contrast(1.16) drop-shadow(0 10px 24px rgba(0,0,0,0.3)) drop-shadow(0 0 8px rgba(255,255,255,0.6)) drop-shadow(0 0 10px rgba(198,160,82,0.35))' }}
             />
           </div>
         </div>
