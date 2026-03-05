@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(async ({ mode }) => {
-  const plugins = [react({ fastRefresh: true })];
+  const plugins = [react({ fastRefresh: true }), tailwindcss()];
 
   try {
     const { visualizer } = await import('rollup-plugin-visualizer');

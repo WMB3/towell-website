@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap');
-
+﻿@import "tailwindcss";
 :root {
   --primary: #0A2342;
   --secondary: #C6A052;
@@ -20,3 +19,4 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+
