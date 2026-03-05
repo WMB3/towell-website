@@ -1,4 +1,4 @@
-import { memo } from 'react';
+﻿import { memo } from 'react';
 import { Building2, Globe, Mail } from 'lucide-react';
 
 const Footer = memo(() => {
@@ -58,7 +58,7 @@ const Footer = memo(() => {
         </div>
 
         <div className="flex flex-col gap-4 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>Copyright © 2026 Towell Group. All rights reserved.</p>
+          <p>Copyright &copy; 2026 Towell Group. All rights reserved.</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-[#EDAF4A]">
               Privacy Policy
@@ -74,3 +74,4 @@ const Footer = memo(() => {
 });
 
 export default Footer;
+

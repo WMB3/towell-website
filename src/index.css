@@ -13,10 +13,10 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: clip; /* use hidden if clip causes issues */
+  overflow-x: hidden;
 }
 
 #root {
   width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
 }

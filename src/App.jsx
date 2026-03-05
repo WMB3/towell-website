@@ -363,24 +363,8 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.style.maxWidth = '100%';
-    document.documentElement.style.overflowX = 'clip';
-    document.body.style.width = '100%';
-    document.body.style.maxWidth = '100%';
-    document.body.style.overflowX = 'clip';
-
-    const root = document.getElementById('root');
-    if (root) {
-      root.style.width = '100%';
-      root.style.maxWidth = '100%';
-      root.style.overflowX = 'clip';
-      root.style.minHeight = '100vh';
-    }
-  }, []);
-
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-clip">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -405,13 +389,13 @@ function App() {
               color: var(--text);
               width: 100%;
               min-height: 100vh;
-              overflow-x: clip;
+              overflow-x: hidden;
             }
             #root {
               width: 100%;
               max-width: 100%;
               min-height: 100vh;
-              overflow-x: clip;
+              overflow-x: hidden;
             }
             img {
               max-width: 100%;
