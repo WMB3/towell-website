@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import { Clock, Globe, MessageSquare, Send, Sparkles, X } from 'lucide-react';
 
 const API_ENDPOINT = import.meta.env.VITE_HERITAGE_API_URL || '/api/heritage-chat';
@@ -11,17 +11,17 @@ const SUGGESTIONS = {
     'Who was Mohamed Fadhel?'
   ],
   ar: [
-    'كيف بدأ ويليام جاك تاول في عام 1866؟',
-    'أخبرني عن عصر النهضة في 1970',
-    'ما هي القطاعات التي تعمل فيها تاول اليوم؟',
-    'من كان محمد فاضل؟'
+    '\u0643\u064A\u0641 \u0628\u062F\u0623 \u0648\u064A\u0644\u064A\u0627\u0645 \u062C\u0627\u0643 \u062A\u0627\u0648\u0644 \u0641\u064A \u0639\u0627\u0645 1866\u061F',
+    '\u0623\u062E\u0628\u0631\u0646\u064A \u0639\u0646 \u0639\u0635\u0631 \u0627\u0644\u0646\u0647\u0636\u0629 \u0641\u064A 1970',
+    '\u0645\u0627 \u0647\u064A \u0627\u0644\u0642\u0637\u0627\u0639\u0627\u062A \u0627\u0644\u062A\u064A \u062A\u0639\u0645\u0644 \u0641\u064A\u0647\u0627 \u062A\u0627\u0648\u0644 \u0627\u0644\u064A\u0648\u0645\u061F',
+    '\u0645\u0646 \u0643\u0627\u0646 \u0645\u062D\u0645\u062F \u0641\u0627\u0636\u0644\u061F'
   ]
 };
 
 const INTRO_MESSAGE = {
   role: 'assistant',
   content:
-    'مرحباً! Welcome to Towell Heritage Guide. I can share stories from our 160-year journey since 1866. Ask me about our founders, milestones, or legacy across Oman, UAE, and India.',
+    '\u0645\u0631\u062D\u0628\u0627\u064B! Welcome to Towell Heritage Guide. I can share stories from our 160-year journey since 1866. Ask me about our founders, milestones, or legacy across Oman, UAE, and India.',
   timestamp: Date.now()
 };
 
@@ -83,7 +83,7 @@ export default function HeritageBot() {
           role: 'assistant',
           content:
             language === 'ar'
-              ? 'عذراً، حدث خلل تقني. يرجى المحاولة مرة أخرى أو التواصل عبر info@wjtowell.com'
+              ? '\u0639\u0630\u0631\u0627\u064B\u060C \u062D\u062F\u062B \u062E\u0644\u0644 \u062A\u0642\u0646\u064A. \u064A\u0631\u062C\u0649 \u0627\u0644\u0645\u062D\u0627\u0648\u0644\u0629 \u0645\u0631\u0629 \u0623\u062E\u0631\u0649 \u0623\u0648 \u0627\u0644\u062A\u0648\u0627\u0635\u0644 \u0639\u0628\u0631 info@wjtowell.com'
               : 'I apologize, a technical issue occurred. Please try again or contact info@wjtowell.com',
           timestamp: Date.now()
         }
@@ -102,8 +102,8 @@ export default function HeritageBot() {
         role: 'assistant',
         content:
           newLang === 'ar'
-            ? 'تم التبديل إلى اللغة العربية. كيف يمكنني مساعدتك في معرفة تاريخ تاول؟'
-            : "Switched to English. How can I help you learn about Towell's history?",
+            ? '\u062A\u0645 \u0627\u0644\u062A\u0628\u062F\u064A\u0644 \u0625\u0644\u0649 \u0627\u0644\u0644\u063A\u0629 \u0627\u0644\u0639\u0631\u0628\u064A\u0629. \u0643\u064A\u0641 \u064A\u0645\u0643\u0646\u0646\u064A \u0645\u0633\u0627\u0639\u062F\u062A\u0643 \u0641\u064A \u0645\u0639\u0631\u0641\u0629 \u062A\u0627\u0631\u064A\u062E \u062A\u0627\u0648\u0644\u061F'
+            : 'Switched to English. How can I help you learn about Towell\'s history?',
         timestamp: Date.now()
       }
     ]);
@@ -153,7 +153,7 @@ export default function HeritageBot() {
           {messages.filter((m) => m.role === 'user').length === 0 && (
             <div className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white p-4">
               <p className="mb-2 text-xs font-medium text-slate-600">
-                {isArabic ? 'أسئلة مقترحة:' : 'Try asking:'}
+                {isArabic ? '\u0623\u0633\u0626\u0644\u0629 \u0645\u0642\u062A\u0631\u062D\u0629:' : 'Try asking:'}
               </p>
               <div className="flex flex-wrap gap-2">
                 {SUGGESTIONS[language].slice(0, 2).map((question) => (
@@ -248,7 +248,7 @@ export default function HeritageBot() {
                     sendMessage();
                   }
                 }}
-                placeholder={isArabic ? 'اسأل عن تاريخنا...' : 'Ask about our history...'}
+                placeholder={isArabic ? '\u0627\u0633\u0623\u0644 \u0639\u0646 \u062A\u0627\u0631\u064A\u062E\u0646\u0627...' : 'Ask about our history...'}
                 className={`flex-1 rounded-full border-2 border-slate-300 px-4 py-3 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#1F4585] ${
                   isArabic ? 'text-ar-base' : 'text-sm'
                 }`}
@@ -263,7 +263,7 @@ export default function HeritageBot() {
               </button>
             </div>
             <p className={`mt-2 text-center text-xs text-slate-400 ${isArabic ? 'text-ar-sm' : ''}`}>
-              {isArabic ? 'مدعوم بالذكاء الاصطناعي - قد تحدث أخطاء' : 'AI-powered - May occasionally err'}
+              {isArabic ? '\u0645\u062F\u0639\u0648\u0645 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A - \u0642\u062F \u062A\u062D\u062F\u062B \u0623\u062E\u0637\u0627\u0621' : 'AI-powered - May occasionally err'}
             </p>
           </div>
         </div>
