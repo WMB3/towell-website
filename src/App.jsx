@@ -11,6 +11,7 @@ import {
   Bot,
   Monitor
 } from 'lucide-react';
+import HeritageBot from './components/HeritageBot';
 
 // --- Static Data Extracted to Prevent Re-renders ---
 const STATS = [
@@ -880,7 +881,7 @@ export default function App() {
       </main>
       
       <Footer />
-      <TowellAssistant />
+      <HeritageBot />
     </div>
   );
 }
