@@ -4,7 +4,7 @@ import { Building2, Globe, Mail } from 'lucide-react';
 const Footer = memo(() => {
   return (
     <footer id="contact" className="w-full border-t-[6px] border-[#EDAF4A] bg-[#0f203c] px-4 pb-10 pt-16 text-white sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="w-full">
         <div className="mb-10 grid gap-8 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="mb-5 flex items-center gap-4">

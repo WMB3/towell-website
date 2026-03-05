@@ -73,21 +73,14 @@ const useScrollReveal = (threshold = 0.1) => {
 };
 
 const OptimizedImage = memo(({ src, alt, className, priority = false }) => {
-  const webpSrc = src.replace(/\.(png|jpg|jpeg)$/i, '.webp');
-  const avifSrc = src.replace(/\.(png|jpg|jpeg)$/i, '.avif');
-
   return (
-    <picture>
-      <source srcSet={avifSrc} type="image/avif" />
-      <source srcSet={webpSrc} type="image/webp" />
-      <img
-        src={src}
-        alt={alt}
-        className={className}
-        loading={priority ? 'eager' : 'lazy'}
-        decoding="async"
-      />
-    </picture>
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
+    />
   );
 });
 
@@ -181,7 +174,7 @@ const Navbar = memo(({ sun }) => {
           : undefined
       }
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="flex w-full items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <TowellLogo variant="emblem" className="h-10 w-10 sm:h-12 sm:w-12" priority />
           <TowellLogo variant="main" className="hidden h-8 sm:block" />
@@ -271,7 +264,7 @@ const Hero = memo(
           }}
         />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full px-4 text-left sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col items-center gap-4">
             <Reveal delay={100}>
               <TowellLogo variant="badge" className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 object-contain" />
@@ -294,13 +287,13 @@ const Hero = memo(
             </h1>
           </Reveal>
           <Reveal delay={300}>
-            <p className="mx-auto mb-8 max-w-3xl font-text text-xl text-white/90 sm:text-2xl">
+            <p className="mb-8 max-w-3xl font-text text-xl text-white/90 sm:text-2xl">
               Since 1866, Towell Group has been shaping Oman&apos;s future across automotive, retail,
               infrastructure, and technology.
             </p>
           </Reveal>
           <Reveal delay={380}>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <button className="group flex items-center gap-2 rounded-full bg-[#EDAF4A] px-8 py-4 font-accent text-lg font-bold text-[#0A2342] shadow-2xl transition-transform hover:scale-105">
                 Explore Our Legacy
                 <ArrowRight className="transition-transform group-hover:translate-x-1" size={20} />
@@ -312,7 +305,7 @@ const Hero = memo(
             </div>
           </Reveal>
 
-          <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
+          <div className="mt-16 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
             {[
               { value: '160+', label: 'Years of Heritage' },
               { value: '5000+', label: 'Employees' },
