@@ -92,16 +92,37 @@ const OptimizedImage = memo(({ src, alt, className, priority = false }) => {
 });
 
 const TowellLogo = memo(({ variant = 'main', className = '', priority = false }) => {
-  const logoSrc = useMemo(() => {
+  const logoConfig = useMemo(() => {
     const map = {
-      emblem: '/towells-emblem-icon.png',
-      badge: '/towells-anniversary-badge.png',
-      main: '/towells-main-logo-en.png'
+      emblem: {
+        src: '/towells-emblem-icon.png',
+        defaultClass: 'h-10 w-10 sm:h-12 sm:w-12 object-contain'
+      },
+      badge: {
+        src: '/towells-anniversary-badge.png',
+        defaultClass: 'h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain'
+      },
+      main: {
+        src: '/towells-main-logo-en.png',
+        defaultClass: 'h-6 w-auto sm:h-8 md:h-10 object-contain'
+      },
+      arabic: {
+        src: '/towells-logo-ar.png',
+        defaultClass: 'h-8 w-auto sm:h-10 md:h-12 object-contain'
+      }
     };
     return map[variant] || map.main;
   }, [variant]);
 
-  return <OptimizedImage src={logoSrc} alt="Towell Group" className={className} priority={priority} />;
+  const shouldPrioritize = priority || variant === 'main' || variant === 'emblem';
+  return (
+    <OptimizedImage
+      src={logoConfig.src}
+      alt="Towell Group"
+      className={className || logoConfig.defaultClass}
+      priority={shouldPrioritize}
+    />
+  );
 });
 
 const Reveal = memo(({ children, delay = 0 }) => {
@@ -250,10 +271,22 @@ const Hero = memo(
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal delay={100}>
-            <TowellLogo variant="badge" className="mx-auto mb-6 h-24" />
-          </Reveal>
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="mb-8 flex flex-col items-center gap-4">
+            <Reveal delay={100}>
+              <TowellLogo variant="badge" className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 object-contain" />
+            </Reveal>
+            <Reveal delay={160}>
+              <TowellLogo variant="main" className="h-8 w-auto sm:h-10 md:h-12 object-contain" />
+            </Reveal>
+            <Reveal delay={220}>
+              <TowellLogo variant="arabic" className="h-10 w-auto sm:h-12 md:h-14 object-contain" />
+            </Reveal>
+            <Reveal delay={280}>
+              <TowellLogo variant="emblem" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 object-contain" />
+            </Reveal>
+          </div>
+
           <Reveal delay={220}>
             <h1 className="mb-6 font-primary text-5xl font-bold text-white sm:text-6xl md:text-7xl">
               Trusted for
@@ -279,7 +312,7 @@ const Hero = memo(
             </div>
           </Reveal>
 
-          <div className="mx-auto mt-16 grid max-w-4xl grid-cols-3 gap-8">
+          <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
             {[
               { value: '160+', label: 'Years of Heritage' },
               { value: '5000+', label: 'Employees' },
@@ -330,8 +363,24 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.style.maxWidth = '100%';
+    document.documentElement.style.overflowX = 'clip';
+    document.body.style.width = '100%';
+    document.body.style.maxWidth = '100%';
+    document.body.style.overflowX = 'clip';
+
+    const root = document.getElementById('root');
+    if (root) {
+      root.style.width = '100%';
+      root.style.maxWidth = '100%';
+      root.style.overflowX = 'clip';
+      root.style.minHeight = '100vh';
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full max-w-full overflow-x-clip">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -343,18 +392,43 @@ function App() {
               --surface: ${BRAND.surface};
               --text: ${BRAND.text};
             }
-            * { box-sizing: border-box; }
-            html { scroll-behavior: smooth; }
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            html {
+              scroll-behavior: smooth;
+              font-size: 16px;
+              text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
+            }
             body {
-              margin: 0;
               font-family: 'Inter', sans-serif;
               background: var(--surface);
               color: var(--text);
-              overflow-x: hidden;
+              width: 100%;
+              min-height: 100vh;
+              overflow-x: clip;
+            }
+            #root {
+              width: 100%;
+              max-width: 100%;
+              min-height: 100vh;
+              overflow-x: clip;
+            }
+            img {
+              max-width: 100%;
+              height: auto;
+              display: block;
+            }
+            .container {
+              max-width: 100%;
+              padding-left: 1rem;
+              padding-right: 1rem;
             }
             .font-primary { font-family: 'Montserrat', sans-serif; }
             .font-accent { font-family: 'Montserrat', sans-serif; letter-spacing: 0.02em; }
             .font-text { font-family: 'Inter', sans-serif; }
+            .text-ar-sm { font-size: 0.875rem; line-height: 1.5; letter-spacing: 0.02em; }
+            .text-ar-base { font-size: 1rem; line-height: 1.75; letter-spacing: 0.02em; }
+            .text-ar-lg { font-size: 1.125rem; line-height: 1.75; letter-spacing: 0.02em; }
           `
         }}
       />
