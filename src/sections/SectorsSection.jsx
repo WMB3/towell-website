@@ -30,7 +30,7 @@ const SECTORS = [
 const SectorsSection = memo(({ sun }) => {
   return (
     <section id="sectors" className="w-full bg-white px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-full max-w-7xl">
         <div className="mb-12 flex items-center gap-3">
           <div className="h-[2px] w-12 bg-[var(--secondary)]" />
           <span className="font-accent text-xs font-bold uppercase tracking-[0.18em] text-[var(--primary)]">
