@@ -33,7 +33,7 @@ const CorporateAboutSection = memo(({ sun }) => (
           className="aspect-square rounded-full border-8 border-slate-50 bg-white p-10"
           style={{ boxShadow: `${sun.shadowX}px ${sun.shadowY}px ${sun.blur * 1.2}px rgba(198,160,82,${sun.intensity})` }}
         >
-          <img src="/towells-anniversary-badge.png" alt="150+ Years Emblem" className="h-full w-full object-contain" />
+          <img src="/towells-anniversary-badge.png" alt="150+ Years Emblem" className="brand-added-image h-full w-full object-contain" />
         </div>
       </div>
     </div>

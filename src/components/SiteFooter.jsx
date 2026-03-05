@@ -7,9 +7,9 @@ const SiteFooter = memo(() => (
       <div className="mb-16 grid grid-cols-1 gap-12 border-b border-white/10 pb-16 md:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="mb-8 flex w-fit items-center gap-5">
-            <img src="/towells-emblem-icon.png" alt="Towell Emblem" className="h-16 w-auto object-contain" />
+            <img src="/towells-emblem-icon.png" alt="Towell Emblem" className="brand-added-image h-16 w-auto object-contain" />
             <div className="flex flex-col">
-              <img src="/towells-main-logo-en.png" alt="Towell Group" className="mb-1 h-8 w-auto object-contain" />
+              <img src="/towells-main-logo-en.png" alt="Towell Group" className="brand-added-image-soft mb-1 h-8 w-auto object-contain" />
               <span className="pl-1 text-[9px] font-bold uppercase tracking-[0.3em] text-[#EDAF4A]">Since 1866</span>
             </div>
           </div>

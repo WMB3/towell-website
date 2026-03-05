@@ -65,7 +65,7 @@ Keep tone professional and concise.`;
         <div className="absolute bottom-18 right-0 flex h-[500px] max-h-[75vh] w-[90vw] max-w-md flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-2xl">
           <div className="flex items-center gap-3 border-b-4 border-[var(--secondary)] bg-[var(--primary)] p-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white p-1.5">
-              <img src="/towells-emblem-icon.png" alt="Towell" className="h-full w-full object-contain" />
+              <img src="/towells-emblem-icon.png" alt="Towell" className="brand-added-image h-full w-full object-contain" />
             </div>
             <div>
               <h3 className="font-primary text-sm font-bold text-white">Ask Towell</h3>

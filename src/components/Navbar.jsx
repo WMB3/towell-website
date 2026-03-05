@@ -16,8 +16,8 @@ const Navbar = memo(() => {
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
-          <img src="/towells-emblem-icon.png" alt="Towell Logo" className="h-9 w-auto object-contain" />
-          <img src="/towells-main-logo-en.png" alt="Towell Group" className="h-4 w-auto object-contain" />
+          <img src="/towells-emblem-icon.png" alt="Towell Logo" className="brand-added-image h-9 w-auto object-contain" />
+          <img src="/towells-main-logo-en.png" alt="Towell Group" className="brand-added-image-soft h-4 w-auto object-contain" />
         </div>
 
         <div className="hidden items-center gap-8 lg:flex">
